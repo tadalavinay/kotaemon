@@ -838,10 +838,11 @@ class ChatPage(BasePage):
         ).success(
             **onSuggestChatEvent
         )
-        self.chat_control.conversation_id.change(
-            lambda: gr.update(visible=False),
-            outputs=self.plot_panel,
-        )
+        # Note: State.change() not available in Gradio 4.31.0
+        # self.chat_control.conversation_id.change(
+        #     lambda: gr.update(visible=False),
+        #     outputs=self.plot_panel,
+        # )
 
         self.followup_questions.select(
             self.chat_suggestion.select_example,

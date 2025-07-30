@@ -17,10 +17,12 @@ app = App()
 demo = app.make()
 demo.queue().launch(
     favicon_path=app._favicon,
-    inbrowser=True,
+    inbrowser=False,  # Disabled for remote environment
+    server_name="0.0.0.0",  # Allow external access
+    server_port=7860,
     allowed_paths=[
         "libs/ktem/ktem/assets",
         GRADIO_TEMP_DIR,
     ],
-    share=KH_GRADIO_SHARE,
+    share=True,  # Enable sharing for remote access
 )

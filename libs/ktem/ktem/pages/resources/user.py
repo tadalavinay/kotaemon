@@ -194,24 +194,25 @@ class UserManagement(BasePage):
             outputs=[self.selected_user_id],
             show_progress="hidden",
         )
-        self.selected_user_id.change(
-            self.on_selected_user_change,
-            inputs=[self.selected_user_id],
-            outputs=[
-                self._selected_panel,
-                self._selected_panel_btn,
-                # delete section
-                self.btn_delete,
-                self.btn_delete_yes,
-                self.btn_delete_no,
-                # edit section
-                self.usn_edit,
-                self.pwd_edit,
-                self.pwd_cnf_edit,
-                self.admin_edit,
-            ],
-            show_progress="hidden",
-        )
+        # Note: State.change() not available in Gradio 4.31.0
+        # self.selected_user_id.change(
+        #     self.on_selected_user_change,
+        #     inputs=[self.selected_user_id],
+        #     outputs=[
+        #         self._selected_panel,
+        #         self._selected_panel_btn,
+        #         # delete section
+        #         self.btn_delete,
+        #         self.btn_delete_yes,
+        #         self.btn_delete_no,
+        #         # edit section
+        #         self.usn_edit,
+        #         self.pwd_edit,
+        #         self.pwd_cnf_edit,
+        #         self.admin_edit,
+        #     ],
+        #     show_progress="hidden",
+        # )
         self.btn_delete.click(
             self.on_btn_delete_click,
             inputs=[self.selected_user_id],

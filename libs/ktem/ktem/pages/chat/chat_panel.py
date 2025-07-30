@@ -37,7 +37,7 @@ class ChatPanel(BasePage):
             self.text_input = gr.MultimodalTextbox(
                 interactive=True,
                 scale=20,
-                file_count="multiple",
+                # file_count="multiple",  # Not supported in Gradio 4.31.0
                 placeholder=(
                     "Type a message, search the @web, or tag a file with @filename"
                 ),
